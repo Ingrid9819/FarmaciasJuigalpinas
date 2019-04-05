@@ -9,74 +9,106 @@
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
-<body class="container">
+<body>
 
-    <div class="row">
-        <div class="input-field col s12 l6">
-            <input type="text" id="nombre" class="validate">
-            <label for="first_name">Nombre de la Farmacia</label>
+    <div class="navbar-fixed">
+      <nav class="indigo">
+        <div class="nav-wrapper">
+          <div class="container">
+            <a href="#" class="brand-logo">Farmacias</a>
+            <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="#">Mis medicamentos</a></li>
+              <li><a href="#">Farmacias</a></li>
+              <li><a href="#">Quienes Somos</a></li>
+              <li><a href="#">Contacto</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="input-field col s12 l6">
-            <input type="text" id="telefono" class="validate">
-            <label for="last_name">Telefono</label>
-        </div>
-        <div class="input-field col s12 l6">
-            <input type="text" id="direccion" class="validate">
-            <label for="last_name">Direccion</label>
-        </div>
-        <div class="input-field col s12 l6">
-            <input type="text" id="atencion" class="validate">
-            <label for="last_name">Horario de Atencion</label>
-        </div>
-        <button id="guardar" class="btn waves-effect waves-light">Guardar
-          <i class="material-icons">send</i>
-        </button>
+      </nav>
     </div>
-    <br><br>
+    <ul class="side-nav" id="mobile-menu">
+            <li><a href="#">Mis medicamentos</a></li>
+            <li><a href="#">Farmacias</a></li>
+            <li><a href="#">Quienes Somos</a></li>
+            <li><a href="#">Contacto</a></li>
+    </ul>
+    <!-- $(".button-collapse").sideNav(); -->
 
-    <!-- Ver los registros -->
-    <h2>Registros</h2>
-    <hr>
-    <table class="responsive-table">
-        <thead>
-            <tr>
-                <th data-field="id">ID</th>
-                <th data-field="nombre">Nombre de la farmacia</th>
-                <th data-field="telefono">Telefono</th>
-                <th data-field="direccion">Direccion</th>
-                <th data-field="atencion">Atencion</th>
-                <th>Opciones</th>
-            </tr>
-        </thead>
-        <tbody id="tabla">
+    <div class="container" style="margin-top:20px;">
 
-        </tbody>
-    </table>
-
-    <!-- FORMULARIO MODAL PARA EDITAR -->
-
-    <div id="modal1" class="modal modal-fixed-footer">
-        <div class="modal-content">
-            <h4>Editar los datos</h4>
-            <p>
-                <input type="text" id="mnombre" class="validate">
-                <input type="text" id="mtelefono" class="validate">
-                <input type="text" id="mdireccion" class="validate">
-                <input type="text" id="matencion" class="validate">
-                <input type="number" id="ee" class="validate">
-            </p>
+        <h3>Agregar datos:</h3>
+        <div class="row">
+            <div class="input-field col s12 l6">
+                <input type="text" id="nombre" class="validate">
+                <label for="first_name">Nombre de la Farmacia</label>
+            </div>
+            <div class="input-field col s12 l6">
+                <input type="text" id="telefono" class="validate">
+                <label for="last_name">Telefono</label>
+            </div>
+            <div class="input-field col s12 l6">
+                <input type="text" id="direccion" class="validate">
+                <label for="last_name">Direccion</label>
+            </div>
+            <div class="input-field col s12 l6">
+                <input type="text" id="atencion" class="validate">
+                <label for="last_name">Horario de Atencion</label>
+            </div>
+            <button id="guardar" class="btn waves-effect waves-light">Guardar
+              <i class="material-icons">send</i>
+            </button>
         </div>
-        <div class="modal-footer align-center">
-            <button id="editar" class="align-center btn-flat waves-effect waves-light modal-action modal-close">Guardar
-              </button>
+        <br>
+    
+        <!-- Ver los registros -->
+        <h2>Registros</h2>
+        <hr>
+        <table class="responsive-table">
+            <thead>
+                <tr>
+                    <th data-field="id">ID</th>
+                    <th data-field="nombre">Nombre de la farmacia</th>
+                    <th data-field="telefono">Telefono</th>
+                    <th data-field="direccion">Direccion</th>
+                    <th data-field="atencion">Atencion</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla">
+    
+            </tbody>
+        </table>
+    
+        <!-- FORMULARIO MODAL PARA EDITAR -->
+    
+        <div id="modal1" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <h4>Editar los datos</h4>
+                <p>
+                    <input type="text" id="mnombre" class="validate">
+                    <input type="text" id="mtelefono" class="validate">
+                    <input type="text" id="mdireccion" class="validate">
+                    <input type="text" id="matencion" class="validate">
+                    <input type="number" id="ee" class="validate">
+                </p>
+            </div>
+            <div class="modal-footer align-center">
+                <button id="editar" class="align-center btn-flat waves-effect waves-light modal-action modal-close">Guardar
+                  </button>
+            </div>
         </div>
     </div>
+    
 
 
 
 
-
-
+    <footer class="page-footer valign-wrapper center indigo">
+      <div class="container">
+        <p class="flow-text ">&copy; 2019 Copyright Farmacias Juigalpa</p>
+      </div>
+    </footer>
     <!-- Firestore -->
 
     <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
@@ -90,6 +122,7 @@
         $(document).ready(function() {
             // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
             $('.modal').modal();
+            $(".button-collapse").sideNav();
         });
     </script>
 </body>

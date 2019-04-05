@@ -22,7 +22,7 @@ function guardar() {
     var direccion = document.getElementById('direccion').value;
     var atencion = document.getElementById('atencion').value;
 
-    db.collection("datos").add({
+    db.collection("farmacias").add({
             dnombre: nombre,
             dtelefono: telefono,
             ddireccion: direccion,
@@ -46,7 +46,7 @@ function guardar() {
 // LEER LOS DATOS DE FIRESTORE
 //************************************** */
 var tabla = document.getElementById('tabla');
-db.collection("datos").onSnapshot((querySnapshot) => {
+db.collection("farmacias").onSnapshot((querySnapshot) => {
     tabla.innerHTML = '';
     querySnapshot.forEach((doc) => {
         console.log(`${doc.id} => ${doc.data().dnombre}`);
@@ -82,7 +82,7 @@ function borrar(id) {
         })
         .then((willDelete) => {
             if (willDelete) {
-                db.collection("datos").doc(id).delete().then(function() {
+                db.collection("farmacias").doc(id).delete().then(function() {
                     swal("Poof! Registro eliminado!", {
                         icon: "success",
                     });
@@ -107,20 +107,22 @@ function borrar(id) {
 //************************************** */
 
 
-function editar(id, pn, sn, edad) {
+function editar(id, n, t, d,a) {
     $('#modal1').modal('open');
-    document.getElementById('enombre').value = pn;
-    document.getElementById('esnombre').value = sn;
-    document.getElementById('ee').value = edad;
+    document.getElementById('mnombre').value = n;
+    document.getElementById('mtelefono').value = t;
+    document.getElementById('mdireccion').value = d;
+    document.getElementById('matencion').value = a;
     document.getElementById('editar').addEventListener('click', edita);
 
     function edita() {
         var datosRef = db.collection("datos").doc(id);
 
         return datosRef.update({
-                primerNombre: document.getElementById('enombre').value,
-                segundoNombre: document.getElementById('esnombre').value,
-                edad: document.getElementById('ee').value
+                dnombre: document.getElementById('mnombre').value,
+                dtelefono: document.getElementById('mtelefono').value,
+                ddireccion: document.getElementById('mdireccion').value,
+                datencion: document.getElementById('matencion').value
             })
             .then(function() {
                 swal("Registro Editado");
