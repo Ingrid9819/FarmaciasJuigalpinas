@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Proyecto de Firebase</title>
+    <title>Proyecto Farmacia Juigalpina</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
     <link rel="stylesheet" href="css/estilos.css">
@@ -13,16 +13,20 @@
 
     <div class="row">
         <div class="input-field col s12 l6">
-            <input type="text" id="pnombre" class="validate">
-            <label for="first_name">Primer Nombre</label>
+            <input type="text" id="nombre" class="validate">
+            <label for="first_name">Nombre de la Farmacia</label>
         </div>
         <div class="input-field col s12 l6">
-            <input type="text" id="snombre" class="validate">
-            <label for="last_name">Segundo Nombre</label>
+            <input type="text" id="telefono" class="validate">
+            <label for="last_name">Telefono</label>
         </div>
-        <div class="input-field col s12">
-            <input type="number" id="e" class="validate">
-            <label for="email" data-error="wrong" data-success="right">Edad</label>
+        <div class="input-field col s12 l6">
+            <input type="text" id="direccion" class="validate">
+            <label for="last_name">Direccion</label>
+        </div>
+        <div class="input-field col s12 l6">
+            <input type="text" id="atencion" class="validate">
+            <label for="last_name">Horario de Atencion</label>
         </div>
         <button id="guardar" class="btn waves-effect waves-light">Guardar
           <i class="material-icons">send</i>
@@ -37,9 +41,10 @@
         <thead>
             <tr>
                 <th data-field="id">ID</th>
-                <th data-field="primer">Primer Nombre</th>
-                <th data-field="segundo">Segundo Nombre</th>
-                <th data-field="edad">Edad</th>
+                <th data-field="nombre">Nombre de la farmacia</th>
+                <th data-field="telefono">Telefono</th>
+                <th data-field="direccion">Direccion</th>
+                <th data-field="atencion">Atencion</th>
                 <th>Opciones</th>
             </tr>
         </thead>
@@ -54,8 +59,10 @@
         <div class="modal-content">
             <h4>Editar los datos</h4>
             <p>
-                <input type="text" id="enombre" class="validate">
-                <input type="text" id="esnombre" class="validate">
+                <input type="text" id="mnombre" class="validate">
+                <input type="text" id="mtelefono" class="validate">
+                <input type="text" id="mdireccion" class="validate">
+                <input type="text" id="matencion" class="validate">
                 <input type="number" id="ee" class="validate">
             </p>
         </div>

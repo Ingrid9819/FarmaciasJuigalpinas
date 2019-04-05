@@ -2,9 +2,9 @@
 //Autenticación de firebase
 //************************************** */
 firebase.initializeApp({
-    apiKey: "AQUI TU API",
-    authDomain: "AQUI TU DOMINIO",
-    projectId: "AQUI PROYECTO ID"
+    apiKey: "AIzaSyAr60PNOotTw3SZP1K8HjbPQfrj4eYBQwk",
+    authDomain: "farmaciajuigalpina.firebaseapp.com",
+    projectId: "farmaciajuigalpina"
 });
 
 // Inicializar Firestore
@@ -17,21 +17,24 @@ btnGuardar = document.getElementById("guardar").addEventListener("click", guarda
 //************************************** */
 
 function guardar() {
-    var primerNombre = document.getElementById('pnombre').value;
-    var segundoNombre = document.getElementById('snombre').value;
-    var edad = document.getElementById('e').value;
+    var nombre = document.getElementById('nombre').value;
+    var telefono = document.getElementById('telefono').value;
+    var direccion = document.getElementById('direccion').value;
+    var atencion = document.getElementById('atencion').value;
 
     db.collection("datos").add({
-            primerNombre: primerNombre,
-            segundoNombre: segundoNombre,
-            edad: edad
+            dnombre: nombre,
+            dtelefono: telefono,
+            ddireccion: direccion,
+            datencion: atencion
         })
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
             swal("Registro guardado");
-            document.getElementById('pnombre').value = '';
-            document.getElementById('snombre').value = '';
-            document.getElementById('e').value = '';
+            document.getElementById('nombre').value = '';
+            document.getElementById('telefono').value = '';
+            document.getElementById('direccion').value = '';
+            document.getElementById('atencion').value = '';
         })
         .catch(function(error) {
             swal("Error al agregar documento", error);
@@ -46,16 +49,17 @@ var tabla = document.getElementById('tabla');
 db.collection("datos").onSnapshot((querySnapshot) => {
     tabla.innerHTML = '';
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data().primerNombre}`);
+        console.log(`${doc.id} => ${doc.data().dnombre}`);
         tabla.innerHTML += `
         <tr>
             <td>${doc.id}</td>
-            <td>${doc.data().primerNombre}</td>
-            <td>${doc.data().segundoNombre}</td>
-            <td>${doc.data().edad}</td>
+            <td>${doc.data().dnombre}</td>
+            <td>${doc.data().dtelefono}</td>
+            <td>${doc.data().ddireccion}</td>
+            <td>${doc.data().datencion}</td>
             <td>
                 <button onclick="borrar('${doc.id}')"><i class="material-icons blue-text">delete</i></button>
-                <button onclick="editar('${doc.id}','${doc.data().primerNombre}','${doc.data().segundoNombre}','${doc.data().edad}')"><i class="material-icons red-text">edit</i></button>
+                <button onclick="editar('${doc.id}','${doc.data().dnombre}','${doc.data().dtelefono}','${doc.data().ddireccion}','${doc.data().datencion}')"><i class="material-icons red-text">edit</i></button>
             </td>
             
         </tr>
