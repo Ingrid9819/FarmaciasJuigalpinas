@@ -2,67 +2,89 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Farmacia Juigalpina</title>
-  <link rel="stylesheet" href="css/materialize.min.css">
-  <!-- Estilos propios -->
-  <link rel="stylesheet" href="css/estilos.css">
+    <meta charset="UTF-8">
+    <title>Proyecto de Firebase</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
-<body>
-  <div class="navbar-fixed">
-    <nav class="indigo">
-      <div class="nav-wrapper">
-        <div class="container">
-          <a href="#" class="brand-logo">Farm. Juigalpina</a>
-          <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="#">Mis medicamentos</a></li>
-            <li><a href="#">Farmacia</a></li>
-            <li><a href="#">Quienes Somos?</a></li>
-            <li><a href="#">Contacto</a></li>
-          </ul>
+<body class="container">
+
+    <div class="row">
+        <div class="input-field col s12 l6">
+            <input type="text" id="pnombre" class="validate">
+            <label for="first_name">Primer Nombre</label>
         </div>
-      </div>
-    </nav>
-  </div>
-  <ul class="side-nav" id="mobile-menu">
-      <li><a href="#">Mis medicamentos</a></li>
-      <li><a href="#">Farmacia</a></li>
-      <li><a href="#">Quienes Somos?</a></li>
-      <li><a href="#">Contacto</a></li>
-</ul>
+        <div class="input-field col s12 l6">
+            <input type="text" id="snombre" class="validate">
+            <label for="last_name">Segundo Nombre</label>
+        </div>
+        <div class="input-field col s12">
+            <input type="number" id="e" class="validate">
+            <label for="email" data-error="wrong" data-success="right">Edad</label>
+        </div>
+        <button id="guardar" class="btn waves-effect waves-light">Guardar
+          <i class="material-icons">send</i>
+        </button>
+    </div>
+    <br><br>
 
-<div class="row center" style="margin-top:30px;">
-  <div class="col s12 l4">
-    <i class="material-icons">flash_on</i>
-    <h4>Medicamentos</h4>
-    <p>Tenemos todo tipo de pastilla, para cualquier mal que lo aqueje.</p>
-  </div>
-  <div class="col s12 l4">
-    <i class="material-icons">group</i>
-    <h4>Consultas</h4>
-    <p>Consultas gratis, si quiere pagar, bienvenido sea!.</p>
-  </div>
-  <div class="col s12 l4">
-    <i class="material-icons">settings</i>
-    <h4>Visita</h4>
-    <p>Visita en su casa para cualquier enfermedad.</p>
-  </div>
-</div>
-  <!-- $(".button-collapse").sideNav(); -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/materialize.min.js"></script>
-  <script src="js/app.js"></script>
+    <!-- Ver los registros -->
+    <h2>Registros</h2>
+    <hr>
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th data-field="id">ID</th>
+                <th data-field="primer">Primer Nombre</th>
+                <th data-field="segundo">Segundo Nombre</th>
+                <th data-field="edad">Edad</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody id="tabla">
 
-  <script>
-    $("document").ready(function () {
-      $(".button-collapse").sideNav();
+        </tbody>
+    </table>
 
-    });
-  </script>
+    <!-- FORMULARIO MODAL PARA EDITAR -->
+
+    <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Editar los datos</h4>
+            <p>
+                <input type="text" id="enombre" class="validate">
+                <input type="text" id="esnombre" class="validate">
+                <input type="number" id="ee" class="validate">
+            </p>
+        </div>
+        <div class="modal-footer align-center">
+            <button id="editar" class="align-center btn-flat waves-effect waves-light modal-action modal-close">Guardar
+              </button>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Firestore -->
+
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+        });
+    </script>
 </body>
 
 </html>
