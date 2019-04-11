@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Proyecto Farmacia Juigalpina</title>
+    <title>Farmacias de Juigalpa</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/materialize.min.css" media="screen,projection">
     <link rel="stylesheet" href="../css/estilos.css">
@@ -42,7 +42,7 @@
                 <img src="../img/icono/logo.png" alt="" width="5%">
                 <h2>Información</h2>
                 <h4>Acerca de</h4>
-                <p>Farmacias Juigalpinas</p>
+                <p>Farmacias Juigalpinas (FarmApp)</p>
                 <br>
                 <h5>Versión:</h5>
                 <p>ALPHA 0.0.1</p>
@@ -58,3 +58,13 @@
           </div>
         </div>
   </div>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/materialize.min.js"></script>
+  <script>
+      $(document).ready(function() {
+          // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+          $('.modal').modal();
+          $(".button-collapse").sideNav();
+      });
+  </script>
