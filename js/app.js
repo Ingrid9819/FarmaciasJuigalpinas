@@ -133,7 +133,7 @@ function editar(id, n, t, d,a) {
     document.getElementById('editar').addEventListener('click', edita);
 
     function edita() {
-        var datosRef = db.collection("datos").doc(id);
+        var datosRef = db.collection("farmacias").doc(id);
 
         return datosRef.update({
                 dnombre: document.getElementById('mnombre').value,
