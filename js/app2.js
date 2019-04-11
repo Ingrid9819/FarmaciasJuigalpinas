@@ -12,77 +12,52 @@ var db = firebase.firestore();
 //var tabla = document.getElementById("tabla");
 //var buscar = document.getElementById("buscar");
 
- btnGuardar = document.getElementById("guardar").addEventListener("click", guardar);
 
-//btnGuardar2 = document.getElementById("guardar2").addEventListener("click", guardarMedicamento);
+btnGuardar2 = document.getElementById("guardar2").addEventListener("click", guardarMedicamento);
 
 //************************************** */
 // AGREGAR DATOS A FIREBASE
 //************************************** */
 
-function guardar() {
-    var nombre = document.getElementById('nombre').value;
-    var telefono = document.getElementById('telefono').value;
-    var direccion = document.getElementById('direccion').value;
-    var atencion = document.getElementById('atencion').value;
 
-    db.collection("farmacias").add({
-            dnombre: nombre,
-            dtelefono: telefono,
-            ddireccion: direccion,
-            datencion: atencion
-        })
-        .then(function(docRef) {
-            console.log("Document written with ID: ", docRef.id);
-            swal("Registro guardado");
-            document.getElementById('nombre').value = '';
-            document.getElementById('telefono').value = '';
-            document.getElementById('direccion').value = '';
-            document.getElementById('atencion').value = '';
-        })
-        .catch(function(err) {
-            swal("Error al agregar documento", err);
-        });
 
-}
-
-/*function guardarMedicamento(){
+function guardarMedicamento(){
    var nombre = document.getElementById('Medicamento').value;
    var precio = document.getElementById('Precio').value;
+   var farmacia = document.getElementById('farmacia').value;
 
    db.collection("medicamentos").add({
        dnombre: nombre,
-       dprecio: precio
+       dprecio: precio,
+       dfarmacia:farmacia
    }).then(function() {
     
     swal("Registro guardado");
     document.getElementById('Medicamento').value = '';
     document.getElementById('Precio').value = '';
+    document.getElementById('farmacia').value = '';
    }).catch(function() {
        swal("Error al agregar medicamento");
    });
-}*/
+}
 
 
 //************************************** */
 // LEER LOS DATOS DE FIRESTORE
 //************************************** */
 
-console.log("Entrada de datos")
 var tabla = document.getElementById('tabla');
-db.collection("farmacias").onSnapshot((querySnapshot) => {
+db.collection("medicamentos").onSnapshot((querySnapshot) => {
     tabla.innerHTML = '';
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data().dnombre}`);
         tabla.innerHTML += `
         <tr>
             <td>${doc.data().dnombre}</td>
-            <td>${doc.data().dtelefono}</td>
-            <td>${doc.data().ddireccion}</td>
-            <td>${doc.data().datencion}</td>
+            <td>${doc.data().dprecio}</td>
+            <td class="center">${doc.data().dfarmacia}</td>
             <td>
                 <button onclick="borrar('${doc.id}')"><i class="material-icons blue-text">delete</i></button>
-                <button onclick="editar('${doc.id}','${doc.data().dnombre}','${doc.data().dtelefono}','${doc.data().ddireccion}','${doc.data().datencion}')"><i class="material-icons red-text">edit</i></button>
+                <button onclick="editar('${doc.id}','${doc.data().dnombre}','${doc.data().dprecio}','${doc.data().dfarmacia}')"><i class="material-icons red-text">edit</i></button>
             </td>
             
         </tr>
@@ -105,7 +80,7 @@ function borrar(id) {
         })
         .then((willDelete) => {
             if (willDelete) {
-                db.collection("farmacias").doc(id).delete().then(function() {
+                db.collection("medicamentos").doc(id).delete().then(function() {
                     swal("Poof! Registro eliminado!", {
                         icon: "success",
                     });
@@ -124,22 +99,20 @@ function borrar(id) {
 //************************************** */
 
 
-function editar(id, n, t, d,a) {
+function editar(id, n, t, d) {
     $('#modal1').modal('open');
     document.getElementById('mnombre').value = n;
-    document.getElementById('mtelefono').value = t;
-    document.getElementById('mdireccion').value = d;
-    document.getElementById('matencion').value = a;
+    document.getElementById('mprecio').value = t;
+    document.getElementById('mfarmacia').value = d;
     document.getElementById('editar').addEventListener('click', edita);
 
     function edita() {
-        var datosRef = db.collection("datos").doc(id);
+        var datosRef = db.collection("medicamentos").doc(id);
 
         return datosRef.update({
                 dnombre: document.getElementById('mnombre').value,
-                dtelefono: document.getElementById('mtelefono').value,
-                ddireccion: document.getElementById('mdireccion').value,
-                datencion: document.getElementById('matencion').value
+                dprecio: document.getElementById('mprecio').value,
+                dfarmacia: document.getElementById('mfarmacia').value,
             })
             .then(function() {
                 swal("Registro Editado");
@@ -152,6 +125,7 @@ function editar(id, n, t, d,a) {
     }
 
 }
+
 
 document.querySelector("#buscar").onkeyup = function () {
     $filtro_tabla("#tabla-datos", this.value);

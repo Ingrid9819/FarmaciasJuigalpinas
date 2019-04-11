@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto Farmacia Juigalpina</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/materialize.min.css" media="screen,projection">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="shortcut icon" href="../img/icono/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+    <div class="navbar-fixed">
+      <nav class="indigo">
+        <div class="nav-wrapper">
+          <div class="container">
+              <img src="../img/icono/logo.png" style="padding-top:15px; margin-right:10px;"  alt="">
+            <a href="../index.html" class="brand-logo">Farmacias Juigalpinas</a>
+            <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="#">Mis medicamentos</a></li>
+              <li><a href="farmacias.html">Farmacias</a></li>
+              <li><a href="quienessomos.html">Quienes Somos</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <ul class="side-nav" id="mobile-menu">
+            <li><a href="#">Mis medicamentos</a></li>
+            <li><a href="#">Farmacias</a></li>
+            <li><a href="#">Quienes Somos</a></li>
+            
+    </ul>
+    <!-- $(".button-collapse").sideNav(); -->
+
+
+      <div class="row">
+        <div class="col s12 m6 l6" style="padding:3em;">
+            <h3>Agregar datos:</h3>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" id="Medicamento" class="validate">
+                    <label for="first_name">Medicamento</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="Precio" class="validate">
+                    <label for="last_name">Precio</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="farmacia" class="validate">
+                    <label for="last_name">Farmacia</label>
+                </div>
+                
+                <div class="center">
+                  <button id="guardar2" class="btn waves-effect waves-light green btn-large center">Guardar
+                    <i class="material-icons right">send</i>
+                  </button>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col s12 m6 l6 blue lighten-5" style="padding:3em;">
+            <!-- Ver los registros -->
+        <h3>Registros</h3>
+        <i class="material-icons prefix">search</i>
+        <input type="text" class="validate" id="buscar" placeholder="Escribe el texto a buscar..." style="font-size:2em;">
+
+        <hr>
+        <table class="responsive-table" id="tabla-datos">
+            <thead>
+                <tr>
+                    <!-- <th data-field="id">ID</th> -->
+                    <th data-field="nombre">Nombre </th>
+                    <th data-field="precio">Precio</th>
+                    <th data-field="farmacia" class="center">Farmacia</th>
+                   
+                </tr>
+            </thead>
+            <tbody id="tabla">
+            </tbody>
+        </table>
+        </div>
+      </div>
+
+       
+    
+      
+  
+    
+        <!-- FORMULARIO MODAL PARA EDITAR -->
+    
+        <div id="modal1" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <h4>Editar los datos</h4>
+                <p>
+                    <input type="text" id="mnombre" class="validate">
+                    <input type="text" id="mprecio" class="validate">
+                    <input type="text" id="mfarmacia" class="validate">
+                   
+                </p>
+            </div>
+            <div class="modal-footer align-center">
+                <button id="editar" class="align-center btn-flat waves-effect waves-light modal-action modal-close">Guardar
+                  </button>
+            </div>
+        </div>
+
+    <footer class="page-footer valign-wrapper center indigo">
+      <div class="container">
+        <p class="flow-text white-text ">&copy; 2019 Copyright Farmacias Juigalpa</p>
+      </div>
+    </footer>
+    <!-- Firestore -->
+
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/materialize.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../js/app2.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+            $(".button-collapse").sideNav();
+        });
+    </script>
+</body>
+
+</html>

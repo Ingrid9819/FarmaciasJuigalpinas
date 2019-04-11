@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="shortcut icon" href="img/icono/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -15,13 +16,13 @@
       <nav class="indigo">
         <div class="nav-wrapper">
           <div class="container">
-            <a href="#" class="brand-logo">Farmacias</a>
+                <img src="img/icono/logo.png" style="padding-top:15px; margin-right:10px;"  alt="">
+            <a href="#" class="brand-logo">  Farmacias Juigalpinas</a>
             <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-              <li><a href="#">Mis medicamentos</a></li>
-              <li><a href="#">Farmacias</a></li>
-              <li><a href="#">Quienes Somos</a></li>
-              <li><a href="#">Contacto</a></li>
+              <li><a href="paginas/medicamentos.html">Mis medicamentos</a></li>
+              <li><a href="paginas/farmacias.html">Farmacias</a></li>
+              <li><a href="paginas/quienessomos.html">Quienes Somos</a></li>
             </ul>
           </div>
         </div>
@@ -31,78 +32,106 @@
             <li><a href="#">Mis medicamentos</a></li>
             <li><a href="#">Farmacias</a></li>
             <li><a href="#">Quienes Somos</a></li>
-            <li><a href="#">Contacto</a></li>
+         
     </ul>
     <!-- $(".button-collapse").sideNav(); -->
 
-    <div class="container" style="margin-top:20px;">
-
-        <h3>Agregar datos:</h3>
-        <div class="row">
-            <div class="input-field col s12 l6">
-                <input type="text" id="nombre" class="validate">
-                <label for="first_name">Nombre de la Farmacia</label>
-            </div>
-            <div class="input-field col s12 l6">
-                <input type="text" id="telefono" class="validate">
-                <label for="last_name">Telefono</label>
-            </div>
-            <div class="input-field col s12 l6">
-                <input type="text" id="direccion" class="validate">
-                <label for="last_name">Direccion</label>
-            </div>
-            <div class="input-field col s12 l6">
-                <input type="text" id="atencion" class="validate">
-                <label for="last_name">Horario de Atencion</label>
-            </div>
-            <button id="guardar" class="btn waves-effect waves-light">Guardar
-              <i class="material-icons">send</i>
-            </button>
-        </div>
-        <br>
-    
-        <!-- Ver los registros -->
-        <h2>Registros</h2>
-        <hr>
-        <table class="responsive-table">
-            <thead>
-                <tr>
-                    <th data-field="id">ID</th>
-                    <th data-field="nombre">Nombre de la farmacia</th>
-                    <th data-field="telefono">Telefono</th>
-                    <th data-field="direccion">Direccion</th>
-                    <th data-field="atencion">Atencion</th>
-                    <th>Opciones</th>
-                </tr>
-            </thead>
-            <tbody id="tabla">
-    
-            </tbody>
-        </table>
+    <div class="slider">
+      <ul class="slides">
+        <li>
+          <img src="img/1.jpg"> 
+          <div class="caption center- black-text text-darken-2 z-depth-5" style="text-align:center">
+            <h3>FarmaTodo</h3>
+            <h5 class="light black-text text-lighten-3">Encuentralo todo aqui, con los mejores precios</h5>
+          </div>
+        </li>
+        <li>
+          <img src="img/2.jpg"> 
+          <div class="caption center- black-text text-darken-2 z-depth-5" style="text-align:center">
+            <h3>Farmacia Cristal</h3>
+            <h5 class="light black-text text-lighten-3">Precios accesibles en un solo lugar</h5>
+          </div>
+        </li>
+        <li>
+          <img src="img/3.jpg"> 
+          <div class="caption center- black-text text-darken-2 z-depth-5" style="text-align:center">
+            <h3>Farmacia Baéz</h3>
+            <h5 class="light black-text text-lighten-3">¡Promociones especiales las 24 horas!</h5>
+          </div>
+        </li>
+       
+      </ul>
     </div>
     
-        <!-- FORMULARIO MODAL PARA EDITAR -->
-    
-        <div id="modal1" class="modal modal-fixed-footer">
-            <div class="modal-content">
-                <h4>Editar los datos</h4>
-                <p>
-                    <input type="text" id="mnombre" class="validate">
-                    <input type="text" id="mtelefono" class="validate">
-                    <input type="text" id="mdireccion" class="validate">
-                    <input type="text" id="matencion" class="validate">
-                    <input type="number" id="ee" class="validate">
-                </p>
-            </div>
-            <div class="modal-footer align-center">
-                <button id="editar" class="align-center btn-flat waves-effect waves-light modal-action modal-close">Guardar
-                  </button>
-            </div>
+    <section style="margin-top:40px;">
+        <h3 class="center blue-text">Servicios de farmacia</h3>
+        <hr style="width:300px; border:1px solid orange;">
+        <div class="row center" style="margin-top:50px;">
+          <div class="col s12 m4 l4">
+          <img src="img/icono/1.png" width="40%"> 
+           <h4>Medicamento</h4>
+            <p>Invertir en la salud producirá enormes beneficios.</p>
+          </div>
+          <div class="col s12 m4 l4">
+                <img src="img/icono/2.png" width="40%"> 
+                <h4>Atencion a pacientes</h4>
+            <p> La salud es la mayor posesión. La alegría es el mayor tesoro. La confianza es el mayor amigo.</p>
+          </div>
+          <div class="col s12 m4 l4">
+                <img src="img/icono/3.png" width="40%"> 
+                <h4>Servicios sin costo</h4>
+            <p>La salud es la mayor posesión. La alegría es el mayor tesoro. La confianza es el mayor amigo.</p>
+          </div>
         </div>
-    
-    
+    </section>
 
+    <section>
+        <div class="parallax-container">
+          <div class="parallax"><img src="img/6.jpg"></div>
+        </div>
+    </section>
 
+    <section style="margin-top:40px;">
+        <div class="row">
+          <div class="col s12 m6 l6">
+                <h4 class="center blue-text">Contáctanos</h4>
+                <hr style="width:230px; border:1px solid orange;">
+
+              <form>
+                <div class="input-field col s12">
+                  <input type="text" id="primer_nombre" class="validate">
+                  <label for="primer_nombre">Nombre</label>
+                </div>
+                <div class="input-field col s12">
+                  <input type="email" id="email" class="validate">
+                  <label for="email" data-error="Correo Inválido" data-success="Correcto">Email</label>
+                </div>
+                <div class="input-field col s12">
+                  <textarea id="mensaje" class="materialize-textarea"></textarea>
+                  <label for="mensaje">Mensaje</label>
+                </div>
+                <button class="btn waves-effect waves-light blue" type="submit" name="action">Enviar
+                  <i class="material-icons right">send</i>
+                </button>
+              </form>
+          </div>
+          <div class="col s12 m6 l6">
+                <h4 class="center blue-text">Farmacias de la zona</h4>
+                <hr style="width:300px; border:1px solid orange;">
+                <div class="contenedor-mapa">
+                        <iframe
+                          src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3901.0839689085997!2d-85.36892320018895!3d12.106403973094903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sfarmacias+juigalpa!5e0!3m2!1sen!2sni!4v1554932877914!5m2!1sen!2sni"
+                          width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        </div>       
+          </div>
+        </div>
+    </section>
+    <!-- 
+      $('.slider').slider();
+    -->
+
+        
+        
 
 
     <footer class="page-footer valign-wrapper center indigo">
@@ -121,9 +150,10 @@
 
     <script>
         $(document).ready(function() {
-            // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
             $('.modal').modal();
             $(".button-collapse").sideNav();
+            $('.slider').slider();
+            $('.parallax').parallax();
         });
     </script>
 </body>
